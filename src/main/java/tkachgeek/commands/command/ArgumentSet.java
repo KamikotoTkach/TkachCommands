@@ -201,7 +201,7 @@ public class ArgumentSet {
       args = copy;
     }
     
-    List<String> argList = List.of(args);
+    List<String> argList = Arrays.asList(args);
     
     for (int i = 0; i < args.length; i++) {
       if (!arguments[i].valid(sender, args[i], argList)) return new ArgumentFitnessResult(this, arguments[i], args[i]);
@@ -238,9 +238,9 @@ public class ArgumentSet {
       }
       
       List<String> completionOfLastArg = new ArrayList<>();
-      for (var completionLine : arguments[written.size() - 1].completions(sender, written)) {
+      for (String completionLine : arguments[written.size() - 1].completions(sender, written)) {
         if (skipBecauseSpaced > 0) {
-          List<String> parts = List.of(completionLine.split(" "));
+          List<String> parts = Arrays.asList(completionLine.split(" "));
           if (skipBecauseSpaced < parts.size()) {
             completionOfLastArg.add(String.join(" ", parts.subList(skipBecauseSpaced, parts.size())));
           }

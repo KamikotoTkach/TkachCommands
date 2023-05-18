@@ -11,6 +11,7 @@ import tkachgeek.commands.command.color.ColorGenerationStrategy;
 import tkachgeek.tkachutils.messages.Message;
 import tkachgeek.tkachutils.messages.MessageReturn;
 
+
 import java.util.List;
 
 public abstract class Argument {
@@ -49,7 +50,7 @@ public abstract class Argument {
     } else if (this instanceof ExactStringArg) {
       return argumentName();
     } else {
-      var args = "<" + argumentName() + ">";
+      String args = "<" + argumentName() + ">";
       if (hint().isEmpty()) {
         return args;
       }
