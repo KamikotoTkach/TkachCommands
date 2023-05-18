@@ -68,10 +68,6 @@ public class DoubleArg extends Argument {
         return Collections.singletonList(placeholder);
       case DIAPASON:
         return Collections.singletonList(min + " -> " + max);
-      case LIST:
-        return DoubleStream.iterate(min, d -> d <= max, d -> d + step)
-                           .limit(1000)
-                           .mapToObj(Double::toString).collect(Collectors.toList());
     }
     return Collections.emptyList();
   }

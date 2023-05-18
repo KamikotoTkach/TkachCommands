@@ -12,7 +12,6 @@ import tkachgeek.commands.command.arguments.basic.IntegerArg;
 import tkachgeek.commands.command.arguments.basic.StringArg;
 import tkachgeek.commands.command.arguments.bukkit.*;
 import tkachgeek.commands.command.arguments.bukkit.location.LocationPart;
-import tkachgeek.commands.command.arguments.bukkit.location.TargetXArg;
 import tkachgeek.commands.command.arguments.datetime.DurationArg;
 import tkachgeek.commands.command.arguments.datetime.TimeArg;
 import tkachgeek.commands.command.arguments.spaced.SafetySpacedStringArg;
@@ -45,18 +44,6 @@ public class main extends JavaPlugin {
                   new ArgumentSet(new PrintArguments(), new ExactStringArg("world"), new WorldArg()),
                   new ArgumentSet(new PrintArguments(), new ExactStringArg("onlinePlayersWithPermission"), new OnlinePlayerWithPermissionArg("*", "admin")),
                   new ArgumentSet(new PrintArguments(), new ExactStringArg("nearPlayers"), new NearPlayersArg(10, 10))
-               )
-               .subCommands(
-                  new Command("target")
-                     .arguments(
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("XYZ"), ComplexArg.xyz),
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("X"), new TargetXArg(LocationPart.X)),
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("Y"), new TargetXArg(LocationPart.Y)),
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("Z"), new TargetXArg(LocationPart.Z)),
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("PITCH"), new TargetXArg(LocationPart.PITCH)),
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("YAW"), new TargetXArg(LocationPart.YAW)),
-                        new ArgumentSet(new PrintArguments(), new ExactStringArg("WORLD"), new TargetXArg(LocationPart.WORLD))
-                     )
                ),
             
             new Command("basic")
